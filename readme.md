@@ -7,3 +7,13 @@ npx tsc
 npm i tslint --save-dev
 
 npx tslint --init
+
+For tests
+
+npm i -D jest @types/jest ts-node --save-dev
+
+npm i -D @swc/jest @swc/cli @swc/core
+
+npx jest --init
+
+y y node no v8 y
