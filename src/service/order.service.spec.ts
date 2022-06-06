@@ -31,4 +31,18 @@ describe("Order service unit tests", () => {
     
     });
 
+    it("should add reward points to customer", () => {
+        const customer = new Customer("c1", "Customer 1");
+        expect(customer.rewardPoints).toBe(0);
+        const item1 = new OrderItem("i1", "Item 1", 10, "p1", 1);
+
+        const order = OrderService.placeOrder(customer, [item1]);
+
+        expect(customer.rewardPoints).toBe(5);
+
+        customer.addRewardPoints(10)
+
+        expect(customer.rewardPoints).toBe(15);
+    })
+
 })
