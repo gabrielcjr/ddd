@@ -23,3 +23,4 @@ npm i uuid @types/uuid
 npm install sequelize reflect-metadata sequelize-typescript --save-dev
 
 npm install sqlite3 --save-dev
+
