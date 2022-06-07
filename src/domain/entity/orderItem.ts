@@ -27,10 +27,14 @@ export default class OrderItem {
         }
 
         get price(): number {
-            return this._price * this._quantity;
+            return this._price;
         }
 
         get productId(): string {
             return this._productId;
+        }
+
+        subTotal(): number {
+            return this._price * this._quantity;
         }
     }
