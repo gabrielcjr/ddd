@@ -36,10 +36,4 @@ import ProductModel from './product.model';
 
             @Column({allowNull: false})
             declare price: number;
-
-            @Column({allowNull: false})
-            declare total: number;
-
-
-
     }
