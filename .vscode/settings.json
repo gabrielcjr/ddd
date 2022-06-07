@@ -1,3 +1,6 @@
 {
-    "jestrunner.jestCommand": "npm test"
+    "jestrunner.jestCommand": "npm test",
+    "cSpell.words": [
+        "zipcode"
+    ]
 }
