@@ -26,8 +26,12 @@ export default class Order {
         get items(): OrderItem[] {
             return this._items;
         }
-        
-        addItem(item: OrderItem): void {
+
+        changeCustomerId(customerId: string): void {
+            this._customerId = customerId;
+        }
+
+        addItems(item: OrderItem): void {
             this._items.push(item);
         }
 

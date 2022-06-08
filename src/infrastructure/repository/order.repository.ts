@@ -33,27 +33,54 @@ export default class OrderRepository  {
 
     async update(entity: Order): Promise<void> {
        
-        await OrderModel.update(
-            {
+        await OrderModel.update({
+                id: entity.id,
                 customer_id: entity.customerId,
-                total: entity.total(),
                 items: entity.items.map((item) => ({
                         id: item.id,
                         product_id: item.productId,
                         name: item.name,
                         price: item.price,
                         quantity: item.quantity
-                }))},
+                        }
+                )),
+                total: entity.total()
+            },
             {
                 where: {
                     id: entity.id,
-                },
-            }
-    )}
+                }
+            
+            },      
 
-    // async find(id: string): Promise<Order> {
-    //     return new Promise<Order> 
-    // }
+        )
+    }
+
+    async find(id: string): Promise<Order> {
+        const orderModel = await OrderModel.findOne({
+            where: {
+                id,
+            },
+            include: [{model: OrderItemModel}]
+        });
+        if (!orderModel) {
+            throw new Error("Order not found");
+        }
+        const order = new Order(
+            orderModel.id,
+            orderModel.customer_id,
+            orderModel.items.map((item) => new OrderItem(
+                item.id,
+                item.name,
+                item.price,
+                item.product_id,
+                item.quantity
+            ))
+            
+        );
+        return order;
+
+    }
 
     // async findAll(): Promise<Order[]> {
     //     return new Promise<order[]>
