@@ -1,6 +1,6 @@
 import CustomerCreatedEvent from "../customer-created.event";
-import SendConsoleLog1Handler from "./send-console-log-1.handler";
-import SendConsoleLog2Handler from "./send-console-log-2.handler";
+import SendConsoleLog1Handler from "./send-console-log-1-when-customer-is-created.handler";
+import SendConsoleLog2Handler from "./send-console-log-2-when-customer-is-created.handler";
 
 describe("Test send console log handlers", () => {
     it("should send console log 1", () => {
