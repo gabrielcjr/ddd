@@ -22,6 +22,10 @@ export default class Customer {
         return this._rewardPoints;
     }
 
+    get address(): Address {
+        return this._address;
+    }
+
     get id(): string {
         return this._id;
     }

@@ -8,9 +8,9 @@ export default class OrderItem {
 
         constructor(id: string, name: string, price: number, productId: string, quantity: number) {
             this._id = id;
-            this._productId = productId;
             this._name = name;
             this._price = price;
+            this._productId = productId;
             this._quantity = quantity;
         }
 

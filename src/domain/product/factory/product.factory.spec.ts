@@ -4,12 +4,27 @@ import ProductFactory from "./product.factory";
 describe("Product factory tests", () => {
     it("should create a product type A", () => {
         // Arrange
-        const productFactory = new ProductFactory();
-        const product = productFactory.create("Product 1", 100, "Product 1 description");
+        const product = ProductFactory.create("a", "Product A", 100);
 
-        expect(product).toBeDefined();
-        expect(product.name).toBe("Product 1");
+        expect(product.id).toBeDefined();
+        expect(product.name).toBe("Product A");
         expect(product.price).toBe(100);
-        expect(product.description).toBe("Product 1 description");
+        expect(product.constructor.name).toBe("Product");
     })
-}
+
+    it("should create a product type B", () => {
+        // Arrange
+        const product = ProductFactory.create("b", "Product B", 1);
+
+        expect(product.id).toBeDefined();
+        expect(product.name).toBe("Product B");
+        expect(product.price).toBe(2);
+        expect(product.constructor.name).toBe("ProductB");
+    })
+
+    it("should throw an error when creating a product with invalid type", () => {
+        // Arrange
+        expect(() => ProductFactory.create("c", "Product C", 100)).toThrowError("Invalid product type");
+    }
+    )
+})
